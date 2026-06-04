@@ -1,0 +1,316 @@
+body {
+  background: linear-gradient(
+    -45deg,
+    #eef2ff,
+    #f5f3ff,
+    #ecfeff,
+    #f0fdf4
+  );
+
+  background-size: 400% 400%;
+
+  animation: gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: #6c63ff;
+  margin-bottom: 20px;
+}
+
+.balance {
+  text-align: center;
+  color: green;
+  margin-bottom: 20px;
+}
+
+.form {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  margin-bottom: 25px;
+}
+
+input,
+select {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.form button {
+  background: #6c63ff;
+  color: white;
+
+  border: none;
+  padding: 12px;
+
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.form button:hover {
+  opacity: 0.9;
+}
+
+.transactions {
+  margin-top: 25px;
+}
+
+.transaction-item {
+  padding: 10px;
+  background: #f8f8f8;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.delete-btn {
+  border: none;
+  background: #e74c3c;
+  color: white;
+
+  padding: 8px 12px;
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  opacity: 0.8;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 10px 0;
+  padding: 15px;
+
+  border-radius: 10px;
+
+  background: #f5f5f5;
+}
+
+.chart-title {
+  text-align: center;
+  color: #6c63ff;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.balance-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.balance-card h2 {
+  color: #444;
+}
+
+.balance-card p {
+  color: green;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.summary {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.card {
+  flex: 1;
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+}
+
+.income-card {
+  background: #2ecc71;
+}
+
+.expense-card {
+  background: #e74c3c;
+}
+
+.card p {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 12px 0;
+  padding: 15px;
+
+  border-radius: 15px;
+  background: white;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+  transition: transform 0.2s ease;
+}
+
+.transaction-item:hover {
+  transform: translateY(-3px);
+}
+
+.income-transaction {
+  border-left: 6px solid #2ecc71;
+}
+
+.expense-transaction {
+  border-left: 6px solid #e74c3c;
+}
+
+@media (max-width: 768px) {
+
+  .summary {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .balance-card {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .transaction-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    width: 100%;
+  }
+}
+
+.form {
+  padding: 15px;
+}
+
+input,
+select,
+button {
+  font-size: 14px;
+}
+
+.theme-btn {
+  margin-bottom: 20px;
+  padding: 10px 15px;
+
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.dark {
+  background: #1e1e1e;
+  color: white;
+}
+
+.dark .form,
+.dark .balance-card,
+.dark .card,
+.dark .transaction-item {
+  background: #2d2d2d;
+  color: white;
+}
+
+.dark input,
+.dark select {
+  background: #3d3d3d;
+  color: white;
+  border: 1px solid #555;
+}
+
+.search-box {
+  width: 100%;
+  padding: 12px;
+  margin: 20px 0;
+
+  border-radius: 10px;
+  border: 1px solid #ddd;
+
+  font-size: 15px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filters select {
+  flex: 1;
+}
+
+.filters {
+  flex-direction: column;
+}
+
+.funny-message {
+  text-align: center;
+  margin: 15px 0;
+  padding: 12px;
+  background: #fff8dc;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
