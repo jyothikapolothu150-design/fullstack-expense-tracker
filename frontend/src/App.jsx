@@ -18,7 +18,7 @@ const [filterCategory, setFilterCategory] = useState("all");
   const fetchTransactions = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/transactions"
+        "https://fullstack-expense-tracker-1-34rh.onrender.com/api/transactions"
       );
 
       setTransactions(response.data);
@@ -51,12 +51,12 @@ const [filterCategory, setFilterCategory] = useState("all");
     try {
       if (editingId) {
   await axios.put(
-    `http://localhost:5000/api/transactions/${editingId}`,
+    `https://fullstack-expense-tracker-1-34rh.onrender.com/api/transactions/${editingId}`,
     newTransaction
   );
 } else {
   await axios.post(
-    "http://localhost:5000/api/transactions",
+    "https://fullstack-expense-tracker-1-34rh.onrender.com/api/transactions",
     newTransaction
   );
 }
@@ -76,7 +76,7 @@ const [filterCategory, setFilterCategory] = useState("all");
   const deleteTransaction = async (id) => {
   try {
     await axios.delete(
-      `http://localhost:5000/api/transactions/${id}`
+      `https://fullstack-expense-tracker-1-34rh.onrender.com/api/transactions/${id}`
     );
 
     fetchTransactions();
@@ -184,7 +184,7 @@ console.log(transactions);
           value={type}
           onChange={(e) => setType(e.target.value)}
         >
-          <option value="">Select Type</option>
+          <option value="">Select type</option>
           <option value="expense">Expense</option>
           <option value="income">Income</option>
         </select>
