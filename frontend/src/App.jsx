@@ -2,6 +2,7 @@ import ExpenseChart from "./ExpenseChart";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
+import Login from "./components/Login";
 
 function App() {
   const [amount, setAmount] = useState("");
@@ -140,6 +141,7 @@ if (balance < 0) {
 
 
 console.log(transactions);
+
   return (
 <div className={`container ${darkMode ? "dark" : ""}`}>
         <h1 className="title">💰 Expense Tracker</h1>
