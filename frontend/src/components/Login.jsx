@@ -25,6 +25,11 @@ localStorage.setItem(
   response.data.name
 );
 
+localStorage.setItem(
+  "userId",
+  response.data.id
+);
+
 alert(response.data.name);
 console.log(response.data);
     } catch (error) {

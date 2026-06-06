@@ -9,7 +9,7 @@ function Signup() {
   const handleSignup = async () => {
     try {
       await axios.post(
-        "http://localhost:5000/api/users/signup",
+  "https://fullstack-expense-tracker-1-34rh.onrender.com/api/users/signup",
         {
           name,
           email,
@@ -19,8 +19,14 @@ function Signup() {
 
       alert("Signup Successful");
     } catch (error) {
-      alert("Signup Failed");
-    }
+  console.log("ERROR:", error);
+  console.log("DATA:", error.response?.data);
+
+  alert(
+    error.response?.data?.message ||
+    "Signup Failed"
+  );
+}
   };
 
   return (
