@@ -19,8 +19,8 @@ const [filterCategory, setFilterCategory] = useState("all");
   const fetchTransactions = async () => {
     try {
       const response = await axios.get(
-        "https://fullstack-expense-tracker-1-34rh.onrender.com/api/transactions"
-      );
+  `https://fullstack-expense-tracker-1-34rh.onrender.com/api/transactions?userId=${localStorage.getItem("userId")}`
+);
 
       setTransactions(response.data);
     } catch (error) {
@@ -43,11 +43,12 @@ const [filterCategory, setFilterCategory] = useState("all");
     }
 
     const newTransaction = {
-      amount,
-      type,
-      category,
-      note,
-    };
+  amount,
+  type,
+  category,
+  note,
+  userId: localStorage.getItem("userId"),
+};
 
     try {
       if (editingId) {

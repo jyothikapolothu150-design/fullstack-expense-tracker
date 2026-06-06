@@ -7,7 +7,22 @@ router.post("/", async (req, res) => {
   try {
     console.log(req.body);
 
-    const transaction = await Transaction.create(req.body);
+    const {
+      amount,
+      type,
+      category,
+      note,
+      userId,
+    } = req.body;
+
+    const transaction =
+      await Transaction.create({
+        amount,
+        type,
+        category,
+        note,
+        userId,
+      });
 
     res.status(201).json(transaction);
   } catch (error) {
@@ -21,9 +36,12 @@ router.post("/", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const transactions = await Transaction.find();
+    const { userId } = req.query;
 
-    res.status(200).json(transactions);
+    const transactions =
+      await Transaction.find({ userId });
+
+    res.json(transactions);
   } catch (error) {
     res.status(500).json({
       message: error.message,
