@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import "../Auth.css";
 
 function Signup() {
   const [name, setName] = useState("");
@@ -30,49 +31,56 @@ function Signup() {
   };
 
   return (
-    <div>
-      <h2 style={{ color: "#4f46e5" }}>
-  Signup
-</h2>
+  <div className="auth-container">
+    <div className="auth-card">
+
+      <div className="logo-circle">
+        🚀
+      </div>
+
+      <h2 className="welcome-text">
+        Create Your Account
+      </h2>
+
+      <h1 className="app-title">
+        Expense Tracker
+      </h1>
+
+      <p className="tagline">
+        Small savings today, big dreams tomorrow.
+      </p>
 
       <input
         type="text"
-        placeholder="Name"
+        placeholder="Enter your name"
         value={name}
-        onChange={(e) =>
-          setName(e.target.value)
-        }
+        onChange={(e) => setName(e.target.value)}
       />
-
-      <br />
 
       <input
         type="email"
-        placeholder="Email"
+        placeholder="Enter your email"
         value={email}
-        onChange={(e) =>
-          setEmail(e.target.value)
-        }
+        onChange={(e) => setEmail(e.target.value)}
       />
-
-      <br />
 
       <input
         type="password"
-        placeholder="Password"
+        placeholder="Create password"
         value={password}
-        onChange={(e) =>
-          setPassword(e.target.value)
-        }
+        onChange={(e) => setPassword(e.target.value)}
       />
 
-      <br />
-
-      <button onClick={handleSignup}>
-        Signup
+      <button
+        className="login-btn"
+        onClick={handleSignup}
+      >
+        Create Account
       </button>
+
     </div>
-  );
+  </div>
+);
 }
 
 export default Signup;

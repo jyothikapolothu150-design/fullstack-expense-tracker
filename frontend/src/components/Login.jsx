@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import "../Auth.css";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -30,7 +31,7 @@ localStorage.setItem(
   response.data.id
 );
 
-alert(response.data.name);
+window.location.href = "/";
 console.log(response.data);
     } catch (error) {
   console.log("ERROR:", error);
@@ -42,36 +43,48 @@ console.log(response.data);
   };
 
   return (
-    <div>
-      <h2 style={{ color: "#333" }}>Login</h2>
+  <div className="auth-container">
+    <div className="auth-card">
+
+      <div className="logo-circle">
+        💰
+      </div>
+
+      <h2 className="welcome-text">
+        Welcome to
+      </h2>
+
+      <h1 className="app-title">
+        Expense Tracker
+      </h1>
+
+      <p className="tagline">
+        Small savings today, big dreams tomorrow.
+      </p>
 
       <input
         type="email"
-        placeholder="Email"
+        placeholder="Enter your email"
         value={email}
-        onChange={(e) =>
-          setEmail(e.target.value)
-        }
+        onChange={(e) => setEmail(e.target.value)}
       />
-
-      <br />
 
       <input
         type="password"
-        placeholder="Password"
+        placeholder="Enter your password"
         value={password}
-        onChange={(e) =>
-          setPassword(e.target.value)
-        }
+        onChange={(e) => setPassword(e.target.value)}
       />
 
-      <br />
+      
 
       <button onClick={handleLogin}>
-        Login
-      </button>
+  Login
+</button>
+
     </div>
-  );
+  </div>
+);
 }
 
 export default Login;

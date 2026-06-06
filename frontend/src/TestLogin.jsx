@@ -12,33 +12,30 @@ function TestLogin() {
         <>
           <Login />
 
-          <p>
-            Don't have an account?
-          </p>
+          <p className="switch-text">
+  Don't have an account?
+</p>
 
-          <button
-            onClick={() =>
-              setShowLogin(false)
-            }
-          >
-            Signup
-          </button>
+<button
+  className="switch-btn"
+  onClick={() => setShowLogin(false)}
+>
+  Create Account
+</button>
         </>
       ) : (
         <>
           <Signup />
+<p className="switch-text">
+  Already have an account?
+</p>
 
-          <p>
-            Already have an account?
-          </p>
-
-          <button
-            onClick={() =>
-              setShowLogin(true)
-            }
-          >
-            Login
-          </button>
+<button
+  className="switch-btn"
+  onClick={() => setShowLogin(true)}
+>
+  Login
+</button>
         </>
       )}
     </div>

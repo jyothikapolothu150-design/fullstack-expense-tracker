@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import Login from "./components/Login";
+import TestLogin from "./TestLogin";
+import { saveAs } from "file-saver";
 
 function App() {
   const [amount, setAmount] = useState("");
@@ -14,8 +16,38 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterType, setFilterType] = useState("all");
-const [filterCategory, setFilterCategory] = useState("all");
+  const [filterCategory, setFilterCategory] = useState("all");
+const token = localStorage.getItem("token");
+const userId = localStorage.getItem("userId");
+const exportToCSV = () => {
+  const headers = [
+    "Amount",
+    "Type",
+    "Category",
+    "Note",
+    "Date",
+  ];
 
+  const rows = transactions.map((t) => [
+    t.amount,
+    t.type,
+    t.category,
+    t.note,
+    new Date(t.date).toLocaleDateString(),
+  ]);
+
+  const csvContent = [
+    headers.join(","),
+    ...rows.map((row) => row.join(",")),
+  ].join("\n");
+
+  const blob = new Blob(
+    [csvContent],
+    { type: "text/csv;charset=utf-8;" }
+  );
+
+  saveAs(blob, "transactions.csv");
+};
   const fetchTransactions = async () => {
     try {
       const response = await axios.get(
@@ -138,13 +170,19 @@ if (balance < 0) {
   funnyMessage =
     "🏆 Excellent: Strong financial position maintained.";
 }
-
-
-
 console.log(transactions);
 
+if (!token || !userId) {
+  return <TestLogin />;
+}
+
+
   return (
+    
 <div className={`container ${darkMode ? "dark" : ""}`}>
+  <div className="welcome-card">
+  👋 Welcome, {localStorage.getItem("userName")}
+</div>
         <h1 className="title">💰 Expense Tracker</h1>
       <button
   className="theme-btn"
@@ -152,11 +190,27 @@ console.log(transactions);
 >
   {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
 </button>
+<button
+  className="logout-btn"
+  onClick={() => {
+    localStorage.clear();
+    window.location.reload();
+  }}
+>
+  🚪 Logout
+</button>
 
       <div className="balance-card">
   <h2>💳 Balance</h2>
   <p>₹{balance}</p>
 </div>
+
+<button
+  className="export-btn"
+  onClick={exportToCSV}
+>
+  📥 Download CSV
+</button>
 
 
       <div className="summary">
