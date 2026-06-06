@@ -22,6 +22,14 @@ The application helps users manage their income and expenses, track financial ac
 - Mobile Responsive Design
 - Automatic Date & Time Tracking
 - MongoDB Atlas Database Integration
+- - User Signup
+- User Login
+- JWT Authentication
+- Multi-User Support
+- User-Specific Transactions
+- CSV Export
+- Logout Functionality
+- Welcome User Dashboard
 
 
 
@@ -41,6 +49,10 @@ The application helps users manage their income and expenses, track financial ac
 ### Database
 - MongoDB Atlas
 - Mongoose
+
+- ### Authentication
+- JWT (JSON Web Tokens)
+- bcrypt.js
 
 
 ## 📂 Project Structure
@@ -152,18 +164,40 @@ PUT /api/transactions/:id
 ```http
 DELETE /api/transactions/:id
 ```
+### User Authentication
 
+POST /api/users/signup
 
+POST /api/users/login
+
+## 🌍 Deployment
+
+### Backend
+- Render
+
+### Database
+- MongoDB Atlas
+  
+### frontend
+vercel
 
 ## 🔮 Future Enhancements
 
-- Financial Insights
 - Budget Planning
 - Monthly Reports
-- Export Transactions to PDF
 - Smart Expense Recommendations
-- User Authentication
 - Cloud Deployment
+
+- ### Project Highlights
+
+- Built a complete MERN Stack Expense Tracker
+- Implemented JWT Authentication
+- Developed Multi-User Transaction Management
+- Integrated MongoDB Atlas Database
+- Added Analytics, Search, Filters, Dark Mode, and CSV Export
+- Deployed Backend on Render
+
+"Small savings today, big dreams tomorrow."
 
 
 ## 👩‍💻 Author
@@ -178,7 +212,4 @@ Interested in AI Integrated Web Applications
 
 
 
-=======
-# fullstack-expense-tracker
-A Full Stack Expense Tracker using React, Express, Node.js, and MongoDB with analytics, CRUD operations, dark mode, and responsive UI.
->>>>>>> 1f5803d9c5124c4e80cad797fbb68d8f86b9b7e2
+
