@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # 💰 Full Stack Expense Tracker
 
 A modern Full Stack Expense Tracker application built using React, Node.js, Express, and MongoDB Atlas.
